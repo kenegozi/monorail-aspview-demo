@@ -1,0 +1,7 @@
+*.csproj.user
+*.suo
+*.resharper
+*.resharper.user
+bin/
+obj/
+_ReSharper.*/

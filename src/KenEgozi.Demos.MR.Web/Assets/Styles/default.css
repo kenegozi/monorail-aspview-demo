@@ -1,0 +1,25 @@
+﻿div.book-brief,
+div.dvd-brief
+{
+	margin		: 10px 0 10px 0;
+	padding		: 3px;
+	border		: 1px solid silver;
+	position	: relative;
+}
+
+div.book-brief h6,
+div.dvd-brief h6
+{
+	position	: absolute;
+	top			: -7px;
+	left		: 10px;
+	background	: #fff;
+	padding		: 0 1px 0 1px;
+	margin		: 0;
+}
+
+div.book-brief:hover,
+div.dvd-brief:hover
+{
+	background-color : #EEE;
+}
