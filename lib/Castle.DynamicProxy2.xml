@@ -112,7 +112,6 @@
             TODO: 
             - Use the interceptor selector if provided
             - Add tests and fixes for 'leaking this' problem
-            - Mixin support
             </remarks>
         </member>
         <member name="M:Castle.DynamicProxy.Generators.BaseProxyGenerator.GetProxyTargetReference">
@@ -229,12 +228,13 @@
             
             </summary>
         </member>
-        <member name="M:Castle.DynamicProxy.Generators.InterfaceProxyWithTargetGenerator.FindMethodOnTargetType(System.Reflection.MethodInfo,System.Type)">
+        <member name="M:Castle.DynamicProxy.Generators.InterfaceProxyWithTargetGenerator.FindMethodOnTargetType(System.Reflection.MethodInfo,System.Type,System.Boolean)">
             <summary>
             Finds the type of the method on target.
             </summary>
             <param name="methodOnInterface">The method on interface.</param>
             <param name="proxyTargetType">Type of the proxy target.</param>
+            /// <param name="checkMixins">if set to <c>true</c> will check implementation on mixins.</param>
             <returns></returns>
         </member>
         <member name="M:Castle.DynamicProxy.Generators.InterfaceProxyWithTargetGenerator.IsTypeEquivalent(System.Type,System.Type)">
@@ -398,6 +398,17 @@
             <returns>
             	<c>true</c> if the specified method is internal; otherwise, <c>false</c>.
             </returns>
+        </member>
+        <member name="M:Castle.DynamicProxy.MixinData.#ctor(System.Collections.Generic.IEnumerable{System.Object})">
+            <summary>
+            Because we need to cache the types based on the mixed in mixins, we do the following here:
+             - Get all the mixin interfaces
+             - Sort them by full name
+             - Return them by position
+            
+            The idea is to have reproducable behavior for the case that mixins are registered in different orders.
+            This method is here because it is required 
+            </summary>
         </member>
         <member name="T:Castle.DynamicProxy.ModuleScope">
             <summary>

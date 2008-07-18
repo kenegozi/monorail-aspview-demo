@@ -817,9 +817,16 @@
             managed by this handler.
             </summary>
         </member>
+        <member name="P:Castle.MicroKernel.IHandler.Service">
+            <summary>
+            The serivce that this handler handles
+            </summary>
+        </member>
         <member name="E:Castle.MicroKernel.IHandler.OnHandlerStateChanged">
             <summary>
-            TODO: Document this
+            Allow to track state changes of a handler that is modified directly.
+            This can happen if the client calls AddCustomDependencyValue or 
+            RemoveCustomDependencyValue
             </summary>
         </member>
         <member name="T:Castle.MicroKernel.Handlers.IExposeDependencyInfo">
@@ -1690,44 +1697,9 @@
             Describes a set of components to register in the kernel.
             </summary>
         </member>
-        <member name="M:Castle.MicroKernel.Registration.AllTypes.FromAssemblyNamed(System.String)">
-            <summary>
-            Prepares to register types from an assembly.
-            </summary>
-            <param name="assemblyName">The assembly name.</param>
-            <returns>The corresponding <see cref="T:Castle.MicroKernel.Registration.TypesDescriptor"/></returns>
-        </member>
-        <member name="M:Castle.MicroKernel.Registration.AllTypes.FromAssembly(System.Reflection.Assembly)">
-            <summary>
-            Prepares to register types from an assembly.
-            </summary>
-            <param name="assembly">The assembly.</param>
-            <returns>The corresponding <see cref="T:Castle.MicroKernel.Registration.TypesDescriptor"/></returns>
-        </member>
-        <member name="M:Castle.MicroKernel.Registration.AllTypes.From(System.Collections.Generic.IEnumerable{System.Type})">
-            <summary>
-            Prepares to register types from a list of types.
-            </summary>
-            <param name="types">The list of types.</param>
-            <returns>The corresponding <see cref="T:Castle.MicroKernel.Registration.TypesDescriptor"/></returns>
-        </member>
-        <member name="M:Castle.MicroKernel.Registration.AllTypes.Pick(System.Collections.Generic.IEnumerable{System.Type})">
-            <summary>
-            Prepares to register types from a list of types.
-            </summary>
-            <param name="types">The list of types.</param>
-            <returns>The corresponding <see cref="T:Castle.MicroKernel.Registration.TypesDescriptor"/></returns>
-        </member>
-        <member name="M:Castle.MicroKernel.Registration.AllTypes.From(System.Type[])">
-            <summary>
-            Prepares to register types from a list of types.
-            </summary>
-            <param name="types">The list of types.</param>
-            <returns>The corresponding <see cref="T:Castle.MicroKernel.Registration.TypesDescriptor"/></returns>
-        </member>
         <member name="M:Castle.MicroKernel.Registration.AllTypes.Of(System.Type)">
             <summary>
-            Describes all the types based on <see cref="F:Castle.MicroKernel.Registration.AllTypes.basedOn"/>
+            Describes all the types based on <c>basedOn</c>.
             </summary>
             <param name="basedOn">The base type.</param>
             <returns></returns>
@@ -1744,6 +1716,176 @@
             Describes any types that are supplied.
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.AllTypes.FromAssemblyNamed(System.String)">
+            <summary>
+            Prepares to register types from an assembly.
+            </summary>
+            <param name="assemblyName">The assembly name.</param>
+            <returns>The corresponding <see cref="T:Castle.MicroKernel.Registration.FromDescriptor"/></returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.AllTypes.FromAssembly(System.Reflection.Assembly)">
+            <summary>
+            Prepares to register types from an assembly.
+            </summary>
+            <param name="assembly">The assembly.</param>
+            <returns>The corresponding <see cref="T:Castle.MicroKernel.Registration.FromDescriptor"/></returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.AllTypes.From(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Prepares to register types from a list of types.
+            </summary>
+            <param name="types">The list of types.</param>
+            <returns>The corresponding <see cref="T:Castle.MicroKernel.Registration.FromDescriptor"/></returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.AllTypes.Pick(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Prepares to register types from a list of types.
+            </summary>
+            <param name="types">The list of types.</param>
+            <returns>The corresponding <see cref="T:Castle.MicroKernel.Registration.FromDescriptor"/></returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.AllTypes.From(System.Type[])">
+            <summary>
+            Prepares to register types from a list of types.
+            </summary>
+            <param name="types">The list of types.</param>
+            <returns>The corresponding <see cref="T:Castle.MicroKernel.Registration.FromDescriptor"/></returns>
+        </member>
+        <member name="T:Castle.MicroKernel.Registration.AllTypesOf">
+            <summary>
+            Describes a related group of components to register in the kernel.
+            </summary>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.AllTypesOf.FromAssemblyNamed(System.String)">
+            <summary>
+            Prepares to register types from an assembly.
+            </summary>
+            <param name="assemblyName">The assembly name.</param>
+            <returns>The corresponding <see cref="T:Castle.MicroKernel.Registration.BasedOnDescriptor"/></returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.AllTypesOf.FromAssembly(System.Reflection.Assembly)">
+            <summary>
+            Prepares to register types from an assembly.
+            </summary>
+            <param name="assembly">The assembly.</param>
+            <returns>The corresponding <see cref="T:Castle.MicroKernel.Registration.BasedOnDescriptor"/></returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.AllTypesOf.From(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Prepares to register types from a list of types.
+            </summary>
+            <param name="types">The list of types.</param>
+            <returns>The corresponding <see cref="T:Castle.MicroKernel.Registration.BasedOnDescriptor"/></returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.AllTypesOf.Pick(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Prepares to register types from a list of types.
+            </summary>
+            <param name="types">The list of types.</param>
+            <returns>The corresponding <see cref="T:Castle.MicroKernel.Registration.BasedOnDescriptor"/></returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.AllTypesOf.From(System.Type[])">
+            <summary>
+            Prepares to register types from a list of types.
+            </summary>
+            <param name="types">The list of types.</param>
+            <returns>The corresponding <see cref="T:Castle.MicroKernel.Registration.BasedOnDescriptor"/></returns>
+        </member>
+        <member name="T:Castle.MicroKernel.Registration.BasedOnDescriptor">
+            <summary>
+            Describes how to register a group of related types.
+            </summary>
+        </member>
+        <member name="T:Castle.MicroKernel.Registration.IRegistration">
+            <summary>
+            The contract for all registrations with the kernel.
+            </summary>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.IRegistration.Register(Castle.MicroKernel.IKernel)">
+            <summary>
+            Performs the registration in the <see cref="T:Castle.MicroKernel.IKernel"/>.
+            </summary>
+            <param name="kernel">The kernel.</param>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.BasedOnDescriptor.#ctor(System.Type,Castle.MicroKernel.Registration.FromDescriptor)">
+            <summary>
+            Initializes a new instance of the BasedOnDescriptor.
+            </summary>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.BasedOnDescriptor.If(System.Predicate{System.Type})">
+            <summary>
+            Assigns a conditional predication which must be satisfied.
+            </summary>
+            <param name="ifFilter">The predicate to satisfy.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.BasedOnDescriptor.Unless(System.Predicate{System.Type})">
+            <summary>
+            Assigns a conditional predication which must not be satisfied. 
+            </summary>
+            <param name="unlessFilter">The predicate not to satisify.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.BasedOnDescriptor.Configure(System.Action{Castle.MicroKernel.Registration.ComponentRegistration})">
+            <summary>
+            Allows customized configurations of each matching type.
+            </summary>
+            <param name="configurer">The configuration action.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.BasedOnDescriptor.AllowMultipleMatches">
+            <summary>
+            Allows a type to be registered multiple times.
+            </summary>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.BasedOnDescriptor.BasedOn``1">
+            <summary>
+            Returns the descriptor for accepting a new type.
+            </summary>
+            <typeparam name="T">The base type.</typeparam>
+            <returns>The descriptor for the type.</returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.BasedOnDescriptor.BasedOn(System.Type)">
+            <summary>
+            Returns the descriptor for accepting a new type.
+            </summary>
+            <param name="basedOn">The base type.</param>
+            <returns>The descriptor for the type.</returns>
+        </member>
+        <member name="P:Castle.MicroKernel.Registration.BasedOnDescriptor.InternalBasedOn">
+            <summary>
+            Gets the type all types must be based on.
+            </summary>
+        </member>
+        <member name="P:Castle.MicroKernel.Registration.BasedOnDescriptor.WithService">
+            <summary>
+            Gets the service descriptor.
+            </summary>
+        </member>
+        <member name="T:Castle.MicroKernel.Registration.FromDescriptor">
+            <summary>
+            Describes the source of types to register.
+            </summary>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.FromDescriptor.AllowMultipleMatches">
+            <summary>
+            Allows a type to be registered multiple times.
+            </summary>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.FromDescriptor.BasedOn``1">
+            <summary>
+            Returns the descriptor for accepting a type.
+            </summary>
+            <typeparam name="T">The base type.</typeparam>
+            <returns>The descriptor for the type.</returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.FromDescriptor.BasedOn(System.Type)">
+            <summary>
+            Returns the descriptor for accepting a type.
+            </summary>
+            <param name="basedOn">The base type.</param>
+            <returns>The descriptor for the type.</returns>
         </member>
         <member name="T:Castle.MicroKernel.Registration.ServiceDescriptor">
             <summary>
@@ -1769,58 +1911,6 @@
             <param name="selector"></param>
             <returns></returns>
         </member>
-        <member name="T:Castle.MicroKernel.Registration.TypesDescriptor">
-            <summary>
-            Describes how to register a group of types.
-            </summary>
-        </member>
-        <member name="T:Castle.MicroKernel.Registration.IRegistration">
-            <summary>
-            The contract for all registrations with the kernel.
-            </summary>
-        </member>
-        <member name="M:Castle.MicroKernel.Registration.IRegistration.Register(Castle.MicroKernel.IKernel)">
-            <summary>
-            Performs the registration in the <see cref="T:Castle.MicroKernel.IKernel"/>.
-            </summary>
-            <param name="kernel">The kernel.</param>
-        </member>
-        <member name="M:Castle.MicroKernel.Registration.TypesDescriptor.#ctor(System.Type,System.Collections.Generic.IEnumerable{System.Type})">
-            <summary>
-            Initializes a new instance of the TypesDescriptor.
-            </summary>
-        </member>
-        <member name="M:Castle.MicroKernel.Registration.TypesDescriptor.If(System.Predicate{System.Type})">
-            <summary>
-            Assigns a conditional predication which must be satisfied.
-            </summary>
-            <param name="ifFilter">The predicate to satisfy.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Castle.MicroKernel.Registration.TypesDescriptor.Unless(System.Predicate{System.Type})">
-            <summary>
-            Assigns a conditional predication which must not be satisfied. 
-            </summary>
-            <param name="unlessFilter">The predicate not to satisify.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Castle.MicroKernel.Registration.TypesDescriptor.Configure(System.Action{Castle.MicroKernel.Registration.ComponentRegistration})">
-            <summary>
-            Allows customized configurations of each matching type.
-            </summary>
-            <param name="configurer">The configuration action.</param>
-            <returns></returns>
-        </member>
-        <member name="P:Castle.MicroKernel.Registration.TypesDescriptor.BasedOn">
-            <summary>
-            Gets the type all types must be based on.
-            </summary>
-        </member>
-        <member name="P:Castle.MicroKernel.Registration.TypesDescriptor.WithService">
-            <summary>
-            Gets the service descriptor.
-            </summary>
-        </member>
         <member name="M:Castle.MicroKernel.Registration.Component.For(System.Type)">
             <summary>
             Creates a component registration for the <paramref name="serviceType"/>
@@ -1832,6 +1922,45 @@
             <summary>
             Creates a component registration for the service type.
             </summary>
+            <typeparam name="S">The service type.</typeparam>
+            <returns>The component registration.</returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.Component.For``2">
+            <summary>
+            Creates a component registration for the service types.
+            </summary>
+            <typeparam name="S">The primary service type.</typeparam>
+            <typeparam name="F">The forwarded type.</typeparam>
+            <returns>The component registration.</returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.Component.For``3">
+            <summary>
+            Creates a component registration for the service types.
+            </summary>
+            <typeparam name="S">The primary service type.</typeparam>
+            <typeparam name="F1">The first forwarded type.</typeparam>
+            <typeparam name="F2">The second forwarded type.</typeparam>
+            <returns>The component registration.</returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.Component.For``4">
+            <summary>
+            Creates a component registration for the service types.
+            </summary>
+            <typeparam name="S">The primary service type.</typeparam>
+            <typeparam name="F1">The first forwarded type.</typeparam>
+            <typeparam name="F2">The second forwarded type.</typeparam>
+            <typeparam name="F3">The third forwarded type.</typeparam>
+            <returns>The component registration.</returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.Component.For``5">
+            <summary>
+            Creates a component registration for the service types.
+            </summary>
+            <typeparam name="S">The primary service type.</typeparam>
+            <typeparam name="F1">The first forwarded type.</typeparam>
+            <typeparam name="F2">The second forwarded type.</typeparam>
+            <typeparam name="F3">The third forwarded type.</typeparam>
+            <typeparam name="F4">The fourth forwarded type.</typeparam>
             <returns>The component registration.</returns>
         </member>
         <member name="M:Castle.MicroKernel.Registration.Component.For(Castle.Core.ComponentModel)">
@@ -1840,6 +1969,22 @@
             </summary>
             <param name="model">The component model.</param>
             <returns>The component registration.</returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.Component.ServiceAlreadyRegistred(Castle.MicroKernel.IKernel,Castle.Core.ComponentModel)">
+            <summary>
+            Determines if the component service is already registered.
+            </summary>
+            <param name="kernel">The kernel.</param>
+            <param name="model">The component model.</param>
+            <returns>true if the service is already registered.</returns>
+        </member>
+        <member name="T:Castle.MicroKernel.Registration.ComponentFilter">
+            <summary>
+            Delegate to filter component registration.
+            </summary>
+            <param name="kernel">The kernel.</param>
+            <param name="model">The component model.</param>
+            <returns>true if accepted.</returns>
         </member>
         <member name="T:Castle.MicroKernel.Registration.ComponentRegistration`1">
             <summary>
@@ -1876,6 +2021,54 @@
             With the instance.
             </summary>
             <param name="instance">The instance.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.ComponentRegistration`1.Forward(System.Type[])">
+            <summary>
+            Registers the service types on behalf of this component.
+            </summary>
+            <param name="types">The types to forward.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.ComponentRegistration`1.Forward``1">
+            <summary>
+            Registers the service types on behalf of this component.
+            </summary>
+            <typeparam name="F">The forwarded type.</typeparam>
+            <returns>The component registration.</returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.ComponentRegistration`1.Forward``2">
+            <summary>
+            Registers the service types on behalf of this component.
+            </summary>
+            <typeparam name="F1">The first forwarded type.</typeparam>
+            <typeparam name="F2">The second forwarded type.</typeparam>
+            <returns>The component registration.</returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.ComponentRegistration`1.Forward``3">
+            <summary>
+            Registers the service types on behalf of this component.
+            </summary>
+            <typeparam name="F1">The first forwarded type.</typeparam>
+            <typeparam name="F2">The second forwarded type.</typeparam>
+            <typeparam name="F3">The third forwarded type.</typeparam>
+            <returns>The component registration.</returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.ComponentRegistration`1.Forward``4">
+            <summary>
+            Registers the service types on behalf of this component.
+            </summary>
+            <typeparam name="F1">The first forwarded type.</typeparam>
+            <typeparam name="F2">The second forwarded type.</typeparam>
+            <typeparam name="F3">The third forwarded type.</typeparam>
+            <typeparam name="F4">The fourth forwarded type.</typeparam>
+            <returns>The component registration.</returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.ComponentRegistration`1.Forward(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Registers the service types on behalf of this component.
+            </summary>
+            <param name="types">The types to forward.</param>
             <returns></returns>
         </member>
         <member name="M:Castle.MicroKernel.Registration.ComponentRegistration`1.Activator``1">
@@ -1975,6 +2168,13 @@
             <param name="configNodes">The config nodes.</param>
             <returns></returns>
         </member>
+        <member name="M:Castle.MicroKernel.Registration.ComponentRegistration`1.Configuration(Castle.Core.Configuration.IConfiguration)">
+            <summary>
+            With the configuration.
+            </summary>
+            <param name="configuration">The configuration <see cref="T:Castle.Core.Configuration.MutableConfiguration"/>.</param>
+            <returns></returns>
+        </member>
         <member name="M:Castle.MicroKernel.Registration.ComponentRegistration`1.Interceptors(Castle.Core.InterceptorReference[])">
             <summary>
             With the interceptors.
@@ -1984,8 +2184,22 @@
         </member>
         <member name="M:Castle.MicroKernel.Registration.ComponentRegistration`1.Startable">
             <summary>
-            Ases the startable.
+            Makrs component as startable.
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.ComponentRegistration`1.StartUsingMethod(System.String)">
+            <summary>
+            Assigns the start method for the startable.
+            </summary>
+            <param name="startMethod">The start method.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.ComponentRegistration`1.StopUsingMethod(System.String)">
+            <summary>
+            Assigns the stop method for the startable.
+            </summary>
+            <param name="stopMethod">The stop method.</param>
             <returns></returns>
         </member>
         <member name="M:Castle.MicroKernel.Registration.ComponentRegistration`1.ActAs(System.Object[])">
@@ -1993,6 +2207,20 @@
             Marks the components with one or more actors.
             </summary>
             <param name="actors">The component actors.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.ComponentRegistration`1.If(Castle.MicroKernel.Registration.ComponentFilter)">
+            <summary>
+            Assigns a conditional predication which must be satisfied.
+            </summary>
+            <param name="ifFilter">The predicate to satisfy.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Castle.MicroKernel.Registration.ComponentRegistration`1.Unless(Castle.MicroKernel.Registration.ComponentFilter)">
+            <summary>
+            Assigns a conditional predication which must not be satisfied. 
+            </summary>
+            <param name="unlessFilter">The predicate not to satisify.</param>
             <returns></returns>
         </member>
         <member name="M:Castle.MicroKernel.Registration.ComponentRegistration`1.Castle#MicroKernel#Registration#IRegistration#Register(Castle.MicroKernel.IKernel)">
@@ -3764,6 +3992,23 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Castle.MicroKernel.IKernel.Resolve``1(System.String)">
+            <summary>
+            Returns a component instance by the key
+            </summary>
+            <param name="key">Component's key</param>
+            <typeparam name="T">Service type</typeparam>
+            <returns>The Component instance</returns>
+        </member>
+        <member name="M:Castle.MicroKernel.IKernel.Resolve``1(System.String,System.Collections.IDictionary)">
+            <summary>
+            Returns a component instance by the key
+            </summary>
+            <typeparam name="T">Service type</typeparam>
+            <param name="key">Component's key</param>
+            <param name="arguments"></param>
+            <returns>The Component instance</returns>
+        </member>
         <member name="M:Castle.MicroKernel.IKernel.ResolveAll``1">
             <summary>
             Returns component instances that implement TService
@@ -3885,6 +4130,7 @@
             </summary>
             <param name="key"></param>
             <param name="facility"></param>
+            <returns></returns>
         </member>
         <member name="M:Castle.MicroKernel.IKernel.AddFacility``1(System.String)">
             <summary>
@@ -3898,6 +4144,7 @@
             Creates and adds an <see cref="T:Castle.MicroKernel.IFacility"/> facility to the kernel.
             </summary>
             <typeparam name="T">The facility type.</typeparam>
+            <returns></returns>
         </member>
         <member name="M:Castle.MicroKernel.IKernel.GetFacilities">
             <summary>
@@ -4321,6 +4568,23 @@
             Returns the component instance by the component key
             </summary>
             <returns></returns>
+        </member>
+        <member name="M:Castle.MicroKernel.DefaultKernel.Resolve``1(System.String)">
+            <summary>
+            Returns a component instance by the key
+            </summary>
+            <param name="key">Component's key</param>
+            <typeparam name="T">Service type</typeparam>
+            <returns>The Component instance</returns>
+        </member>
+        <member name="M:Castle.MicroKernel.DefaultKernel.Resolve``1(System.String,System.Collections.IDictionary)">
+            <summary>
+            Returns a component instance by the key
+            </summary>
+            <typeparam name="T">Service type</typeparam>
+            <param name="key">Component's key</param>
+            <param name="arguments"></param>
+            <returns>The Component instance</returns>
         </member>
         <member name="M:Castle.MicroKernel.DefaultKernel.RemoveComponent(System.String)">
             <summary>

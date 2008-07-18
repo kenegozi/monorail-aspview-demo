@@ -7,6 +7,6 @@
 </script>
 
 <%foreach (Lendable item in Lendables) {%>
-<%OutputSubView("/lendables/" + item.GetType().Name, new object[] {"Item", item}); %>
+<%OutputSubView("/lendables/" + item.GetType().Name, N("Item", item)); %>
 <%}%>
 
