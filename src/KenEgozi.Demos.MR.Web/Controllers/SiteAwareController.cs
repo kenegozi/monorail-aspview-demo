@@ -15,33 +15,51 @@
 // limitations under the License.
 #endregion
 
+using Castle.Components.DictionaryAdapter;
 using Castle.MonoRail.Framework;
 using Castle.Tools.CodeGenerator.Services;
 using KenEgozi.Demos.MR.Web.SiteMap;
+using KenEgozi.Demos.MR.Web.Views;
 
 namespace KenEgozi.Demos.MR.Web.Controllers
 {
+	/// <summary>
+	/// Basic functionality for Code Generator aware controllers
+	/// </summary>
 	public class SiteAwareController : SmartDispatcherController
 	{
-		readonly RootAreaNode site;
-		readonly ICodeGeneratorServices codeGeneratorServices;
-
-		public SiteAwareController()
-		{
-			codeGeneratorServices = new DefaultCodeGeneratorServices(
-				new DefaultControllerReferenceFactory(),
-				new DefaultArgumentConversionService(),
-				new DefaultRuntimeInformationService());
-
-			site = new RootAreaNode(CodeGeneratorServices);
-		}
-
+		/// <summary>
+		/// Will be overridden in generated partial controllers
+		/// </summary>
 		protected virtual void PerformGeneratedInitialize()
 		{
+			CodeGeneratorServices.RailsContext = Context;
+			CodeGeneratorServices.Controller = this;
+			Site = new RootAreaNode(CodeGeneratorServices);
+			var view = DictionaryAdapterFactory.GetAdapter<ISiteAwareView>(PropertyBag);
+			view.Site = Site;
 		}
 
-		protected RootAreaNode Site { get { return site; } }
+		/// <summary>
+		/// Building typed adapters
+		/// </summary>
+		public IDictionaryAdapterFactory DictionaryAdapterFactory { get; set; }
 
-		protected ICodeGeneratorServices CodeGeneratorServices { get { return codeGeneratorServices; } }
+		/// <summary>
+		/// used for generated partial controllers
+		/// </summary>
+		public ICodeGeneratorServices CodeGeneratorServices { get; set; }
+
+		/// <summary>
+		/// Access the generated Monorail site map
+		/// </summary>
+		protected RootAreaNode Site { get; set; }
+
+		public override void Initialize()
+		{
+			base.Initialize();
+			PerformGeneratedInitialize();
+		}
+
 	}
 }

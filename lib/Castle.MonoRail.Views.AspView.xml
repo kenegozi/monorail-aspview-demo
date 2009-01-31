@@ -134,6 +134,14 @@
             that will be rendered as raw class content
             </summary>
         </member>
+        <member name="M:Castle.MonoRail.Views.AspView.Compiler.WebCompilationContext.#ctor(System.String,System.IO.DirectoryInfo,System.IO.DirectoryInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Castle.MonoRail.Views.AspView.Compiler.WebCompilationContext"/> class.
+            </summary>
+            <param name="viewPathRoot">The view path root.</param>
+            <param name="siteRoot">The site root.</param>
+            <param name="temporarySourceFilesDirectory">The temporary source files directory.</param>
+        </member>
         <member name="T:Castle.MonoRail.Views.AspView.Internal.ParametersDictionary">
             <summary>
             A hybrid dictionary that stores keys as case insensitive strings
@@ -371,9 +379,9 @@
             </summary>
             <param name="view">The view's parent</param>
         </member>
-        <member name="M:Castle.MonoRail.Views.AspView.AspViewBase.GetSubViewFileName(System.String)">
+        <member name="M:Castle.MonoRail.Views.AspView.AspViewBase.GetRootedSubViewTemplate(System.String)">
             <summary>
-            Gets a quallified path and filename to a sub view given it's name
+            Gets a qualified template name
             </summary>
             <param name="subViewName">The sub view's name</param>
             <returns>Relative or absolute path and filename to the sub view</returns>
