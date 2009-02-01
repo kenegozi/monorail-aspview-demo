@@ -5,7 +5,7 @@
 	Dvd Item;
 </script>
 
-<div class="dvd-brief">
+<div class="dvd-brief" id="item-<%=Item.Id %>">
 	<h6>Dvd</h6>
 	<h3><%=Item.Title%></h3>
 	<h5>Directed by <%=Item.Director%>, at the year <%=Item.Year%></h5>

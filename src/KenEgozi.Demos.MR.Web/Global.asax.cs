@@ -30,6 +30,7 @@ using Castle.MonoRail.Framework.JSGeneration;
 using Castle.MonoRail.Framework.JSGeneration.jQuery;
 using Castle.MonoRail.Views.AspView;
 using Castle.MonoRail.WindsorExtension;
+using Castle.Tools.CodeGenerator.External;
 using Castle.Tools.CodeGenerator.Services;
 using Castle.Windsor;
 using KenEgozi.Demos.MR.Web.Controllers;
@@ -78,7 +79,8 @@ namespace KenEgozi.Demos.MR.Web
 				Component.For<IDictionaryAdapterFactory>().ImplementedBy<DictionaryAdapterFactory>().LifeStyle.Transient);
 
 			container.Register(
-				Component.For<ILendablesRepository>().ImplementedBy<LendablesRepository>().LifeStyle.Singleton
+				Component.For<ILendablesRepository>().ImplementedBy<LendablesRepository>().LifeStyle.Singleton,
+				Component.For<ICatsRepository>().ImplementedBy<CatsRepository>().LifeStyle.Singleton
 				);
 		}
 
@@ -89,7 +91,7 @@ namespace KenEgozi.Demos.MR.Web
 			configuration.ViewEngineConfig.ViewEngines.Add(new ViewEngineInfo(typeof(AspViewEngine), false));
 
 			configuration.JSGeneratorConfiguration
-				.AddLibrary("jquery-1.2.1", typeof(JQueryGenerator))
+				.AddLibrary("jquery-1.3.1", typeof(JQueryGenerator))
 					.AddExtension(typeof(CommonJSExtension)).ElementGenerator
 					.AddExtension(typeof(JQueryElementGenerator))
 					.Done

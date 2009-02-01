@@ -32,6 +32,7 @@ namespace KenEgozi.Demos.MR.Web.Domain.Entities
 		public string Author { get; set; }
 		[ValidateNonEmpty(ExecutionOrder = 0)]
 		[ValidateInteger(ExecutionOrder = 0)]
+		[ValidateRange(1900, 2010)]
 		public int Year { get; set; }
 	}
 	/**/

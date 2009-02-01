@@ -34,6 +34,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Castle.Components.DictionaryAdapter.dll</HintPath>
     </Reference>
+    <Reference Include="Castle.Components.Pagination, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Castle.Components.Pagination.dll</HintPath>
+    </Reference>
     <Reference Include="Castle.Components.Validator, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Castle.Components.Validator.dll</HintPath>
@@ -61,6 +65,10 @@
     <Reference Include="Castle.Tools.CodeGenerator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5821b229195ce1e7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\lib\Castle.Tools.CodeGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Tools.CodeGenerator.External, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5821b229195ce1e7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\Castle.Tools.CodeGenerator.External.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Windsor, Version=1.0.3.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -94,35 +102,103 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Images\error.jpg" />
+    <Content Include="Assets\Scripts\jqGrid\jquery.jqGrid.js" />
+    <Content Include="Assets\Scripts\jqGrid\json_test.txt" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\grid.css" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\Arrow2 Down.png" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\Arrow2 Up.png" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\bg.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\cd_run.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\control_090.png" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\control_270.png" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\dirty.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\down.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\fhbg.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\find.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\find1.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\first.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\first.png" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\folder.png" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\headerleft1.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\headerright1.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\ico-close.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\last.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\last.png" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\line3.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\minus.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\next.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\next.png" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\nochild.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\odown.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\off-first.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\off-last.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\off-next.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\off-prev.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\oup.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\plus.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\prev.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\prev.png" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\refresh.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\refresh1.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\resize.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\row_add.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\row_add1.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\row_delete.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\row_delete1.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\row_edit.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\row_edit1.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\sort_asc.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\sort_desc.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\spacer.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\sprite.png" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\tab_close-on.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\tree_leaf.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\tree_minus.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\tree_plus.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\up.gif" />
+    <Content Include="Assets\Scripts\jqGrid\themes\steel\images\wbg.gif" />
+    <Content Include="Assets\Scripts\jquery-1.3.1.min.js" />
+    <Content Include="Assets\Scripts\jquery.validate.min.js" />
     <Content Include="Assets\Scripts\prototype-1.6.0.2.js" />
     <Content Include="Assets\Scripts\validation.js" />
+    <Content Include="Assets\Styles\pets.css" />
     <Content Include="Assets\Styles\default.css" />
     <Content Include="Global.asax" />
     <Content Include="Views\Hello\time.aspx" />
     <Content Include="Views\Hello\view.aspx" />
+    <Content Include="Views\Layouts\pets.aspx" />
     <Content Include="Views\Layouts\LibrarySharp.aspx" />
     <Content Include="Views\Layouts\default.aspx" />
     <Content Include="Views\Lendables\Index.aspx" />
     <Content Include="Views\Lendables\List.aspx" />
-    <Content Include="Views\Lendables\NewDvd.aspx" />
-    <Content Include="Views\Lendables\NewBook.aspx" />
+    <Content Include="Views\Lendables\EditDvd.aspx" />
+    <Content Include="Views\Lendables\EditBook.aspx" />
     <Content Include="Views\Lendables\DVD.aspx" />
     <Content Include="Views\Lendables\Book.aspx" />
     <Content Include="Views\Librerian\Lend.aspx" />
+    <Content Include="Views\Pets\Cat.aspx" />
+    <Content Include="Views\Pets\CatsGrid.aspx" />
+    <Content Include="Views\Pets\EditCat.aspx" />
+    <Content Include="Views\Pets\Cats.aspx" />
     <Content Include="Views\Rescues\GeneralError.aspx" />
     <Content Include="Views\Subscribers\ListLendables.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\CatsController.cs" />
     <Compile Include="Controllers\LendablesController.cs" />
     <Compile Include="Controllers\LibrerianController.cs" />
     <Compile Include="Controllers\HelloController.cs" />
     <Compile Include="Controllers\SubscribersController.cs" />
+    <Compile Include="Domain\Entities\Cat.cs" />
     <Compile Include="Domain\Entities\Lendable.cs" />
     <Compile Include="Domain\Entities\Subscriber.cs" />
+    <Compile Include="Domain\Repository\CatsRepository.cs" />
+    <Compile Include="Domain\Repository\ICatsRepository.cs" />
     <Compile Include="Domain\Repository\ILendablesRepository.cs" />
     <Compile Include="Domain\Repository\LendablesRepository.cs" />
     <Compile Include="Domain\Repository\SubscribersRepository.cs" />
+    <Compile Include="Filters\AjaxAwareFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -139,6 +215,13 @@
     </Compile>
     <Compile Include="Static.Site.Generated.cs" />
     <Compile Include="Views\ISiteAwareView.cs" />
+    <Compile Include="Views\Layouts\IPetsLayout.cs" />
+    <Compile Include="Views\Layouts\ISiteAwareLayout.cs" />
+    <Compile Include="Views\Lendables\IBookView.cs" />
+    <Compile Include="Views\Lendables\IDvdView.cs" />
+    <Compile Include="Views\Pets\ICatsView.cs" />
+    <Compile Include="Views\Pets\ICatView.cs" />
+    <Compile Include="Views\View.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Desk\" />
@@ -171,6 +254,7 @@
     </VisualStudio>
   </ProjectExtensions>
   <PropertyGroup>
-    <PreBuildEvent>"$(ProjectDir)GenerateActiveMap.bat"</PreBuildEvent>
+    <PreBuildEvent>"$(SolutionDir)..\..\lib\Castle.Tools.CodeGenerator.CmdLine.exe"  /P:$(ProjectDir) /ProjectFileName:$(ProjectFileName)
+"$(SolutionDir)..\..\tools\D9.StaticMapGenerator.exe" /site:$(ProjectDir)</PreBuildEvent>
   </PropertyGroup>
 </Project>

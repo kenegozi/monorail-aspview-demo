@@ -43,6 +43,9 @@ namespace KenEgozi.Demos.MR.Web.Domain.Repository
 
 		public Lendable[] FindAllTitledLike(string name)
 		{
+			if (string.IsNullOrEmpty(name))
+				return lendables.Values.ToArray();
+
 			return
 				lendables.Values
 				.Where(l=>l.Title.IndexOf(name, StringComparison.InvariantCultureIgnoreCase) > -1)

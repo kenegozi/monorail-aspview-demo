@@ -7,6 +7,12 @@
 <a href="NewDvd.demo">Add a new DVD</a><br />
 <%} %>
 
+<form method="get">
+	<input type="text" name="q[0]" />
+	<input type="text" name="q[1]" />
+	<input type="text" name="q[2]" />
+	<input type="submit" value="Search" />
+</form>
 
 <subview:List></subview:List>
 <component:CaptureFor id="InjectedToLayout">

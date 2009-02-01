@@ -1,0 +1,25 @@
+﻿*
+{
+	font-size	: 16px;
+}
+html, body, div, p, table, tr, td, thead, tbody, tfoot
+{
+	padding	: 0;
+	margin : 9;
+	border : 0;
+}
+
+table
+{
+	border-collapse : collapse;
+}
+
+td, th
+{
+	padding : 2px;
+}
+
+#list2
+{
+	width	: 500px;
+}

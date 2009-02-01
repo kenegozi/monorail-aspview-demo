@@ -5,6 +5,7 @@
 <head>
 	<title>Monorail Demo - Library</title>
 	<link rel="Stylesheet" href="<%=Static.Site.Assets.Styles.default_css %>" />
+
 </head>
 <body>
     <div>

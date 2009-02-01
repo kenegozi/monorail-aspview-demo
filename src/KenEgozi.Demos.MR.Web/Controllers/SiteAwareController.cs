@@ -17,12 +17,21 @@
 
 using Castle.Components.DictionaryAdapter;
 using Castle.MonoRail.Framework;
+using Castle.Tools.CodeGenerator.External;
 using Castle.Tools.CodeGenerator.Services;
 using KenEgozi.Demos.MR.Web.SiteMap;
 using KenEgozi.Demos.MR.Web.Views;
 
 namespace KenEgozi.Demos.MR.Web.Controllers
 {
+	/// <summary>
+	/// Basic functionality for Code Generator aware controllers
+	/// </summary>
+	public class SiteAwareController<TView> : SiteAwareController
+	{
+		
+	}
+
 	/// <summary>
 	/// Basic functionality for Code Generator aware controllers
 	/// </summary>
@@ -55,11 +64,38 @@ namespace KenEgozi.Demos.MR.Web.Controllers
 		/// </summary>
 		protected RootAreaNode Site { get; set; }
 
+		/// <summary>
+		/// Provides typed access to the property bag
+		/// </summary>
+		/// <typeparam name="T">Interface through with an access to the property bag is
+		/// needed</typeparam>
+		/// <returns>A typed wrapper around PropertyBag of type T</returns>
+		public T Typed<T>()
+		{
+			return DictionaryAdapterFactory.GetAdapter<T>(PropertyBag);
+		}
+
+		/// <summary>
+		/// Provides typed access to the flash
+		/// </summary>
+		/// <typeparam name="T">Interface through with an access to the flash is
+		/// needed</typeparam>
+		/// <returns>A typed wrapper around flash of type T</returns>
+		public T Flashed<T>()
+		{
+			return DictionaryAdapterFactory.GetAdapter<T>(Flash);
+		}
+
 		public override void Initialize()
 		{
 			base.Initialize();
 			PerformGeneratedInitialize();
 		}
+
+		/// <summary>
+		/// True if the current request is an ajax call
+		/// </summary>
+		public bool IsAjax { get; set; }
 
 	}
 }

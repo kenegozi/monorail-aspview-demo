@@ -36,9 +36,10 @@ namespace KenEgozi.Demos.MR.Web.Controllers
 			PropertyBag["Lendables"] = new LendablesRepository().FindAll();
 		}
 
-		public void Index(string q)
+		public void Index(string[] q)
 		{
-			PropertyBag["Lendables"] = new LendablesRepository().FindAllTitledLike(q);
+			var query = string.Join("", q);
+			PropertyBag["Lendables"] = new LendablesRepository().FindAllTitledLike(query);
 			if (Request.Headers["X-Requested-With"] != null)
 			{
 				CancelLayout();
@@ -49,29 +50,47 @@ namespace KenEgozi.Demos.MR.Web.Controllers
 
 		public void NewBook()
 		{
-			PropertyBag["BookType"] = typeof(Book);
+			MyViews.EditBook.Render();
 		}
 
 		public void NewDvd()
 		{
+			MyViews.EditDvd.Render();
+		}
 
+		public void Edit(int id)
+		{
+			var item = new LendablesRepository().Load(id);
+			var type = item.GetType().Name;
+			PropertyBag[type] = item;
+			RenderView("Edit" + type);
 		}
 
 		public void Save([DataBind("book")]Book book)
 		{
+			if (Validator.IsValid(book) == false)
+			{
+				Flash["Book"] = book;
+				Flash["message"] = string.Join("<br/>",
+				                               Validator.GetErrorSummary(book).ErrorMessages);
+				MyActions.NewBook().Redirect();
+				return;
+			}
 			new LendablesRepository().Save(book);
 			MyActions.Index().Redirect();
 		}
 
-		public void Save([DataBind("dvd")]Dvd dvd)
+		public void Save([DataBind("Dvd")]Dvd dvd)
 		{
 			if (dvd.Year < 1980)
 			{
-				Flash["dvd"] = dvd;
+				Flash["Dvd"] = dvd;
 				Flash["message"] = "Cannot add dvds from before 1980";
-				RedirectToAction("New");
+				MyActions.NewDvd().Redirect();
+				return;
 			}
 			new LendablesRepository().Save(dvd);
+			MyActions.Index().Redirect();
 		}
 		
 	}
