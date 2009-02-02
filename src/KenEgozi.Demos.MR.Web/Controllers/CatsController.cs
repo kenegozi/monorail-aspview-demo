@@ -1,3 +1,5 @@
+using System;
+
 using Castle.MonoRail.Framework;
 using KenEgozi.Demos.MR.Web.Domain.Repository;
 using KenEgozi.Demos.MR.Web.Filters;
@@ -78,5 +80,10 @@ namespace KenEgozi.Demos.MR.Web.Controllers
 				MyActions.Cat(cat.Id).Redirect();
 		}
 	}
-
+	public class MyBinder :Attribute , IReturnBinder{
+		public void Bind(IEngineContext context, IController controller, IControllerContext controllerContext, Type returnType, object returnValue)
+		{
+			throw new System.NotImplementedException();
+		}
+	}
 }
